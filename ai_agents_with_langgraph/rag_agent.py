@@ -18,7 +18,7 @@ llm = ChatOpenAI(model="gpt-4o", temperature=0)
 
 embendings = OpenAIEmbeddings(model="text-embedding-3-small")
 
-pdf_path = "Bernard_Resume.pdf";
+pdf_path = "./local/Bernard_Resume.pdf";
 
 
 if not os.path.exists(pdf_path):
@@ -38,7 +38,7 @@ text_slitter = RecursiveCharacterTextSplitter(chunk_size=400, chunk_overlap=50)
 
 pages_split = text_slitter.split_documents(pages)
 
-persist_directory = "./ChromaDB"
+persist_directory = "./local/ChromaDB"
 collection_name = 'resume'
 
 if not os.path.exists(persist_directory):
